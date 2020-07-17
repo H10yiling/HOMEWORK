@@ -1,0 +1,105 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>10</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <h1 class="tt" align="center">
+    <a href="#"></a>
+    10's NTCVS Autobiography
+  </h1>
+
+  
+  <div class="ab">
+    <div class="bfont"><h3>Family Background</h3></div>
+    <blockquote>
+    <p>My name is Hou-Yi-Ling. I’m an nineteen-year-old student, studying in National Tainan Commercial Vocational Senior High School and my major is the International Trade Department. I was born on a special day, International Women's Day. I am an easygoing girl and always keep smile on my face. I grew up in a four-people family. My younger brother studies in junior high school. My father serves a maintenance man and my mother works as a dishes washer. Although they are very busy with their jobs, they never let my brother and I feel poor. My parents usually tell us not to worry about our daily and economical expenses. We can lead a happy life in a positive way. <strong> They educate us how to deal with people, how to face difficulties, and how to help others in need. </strong> Moreover, they never force me to do things what I don’t like. They give me freedom of choice. I really appreciate my parents. All of them play important roles in my life. 
+    </p>
+    </blockquote>
+    <div class="bfont"><h3>School Life</h3></div>
+    <blockquote>
+    <p>I participated in the <strong> Track and Field team </strong> in my senior high school days. I was a good athlete and good at long-distance running. <strong> I came in first in 10,000-meter race </strong> and <strong> came in fifth in 5,000-meter race </strong>. As for me, <strong> practicing long-distance running can <em> make my heart get stronger </em> and <em> start delivering more oxygen to my body </em></strong>. Furthermore, while I was running, I could reduce all of my stress and depression. On the other hand, I took part in the <strong> Pop Dancing Club </strong>. It was an very interesting club. I learned a lot of new dancing skills and performed pretty well. That’s why I was involved in various dancing competitions. However, <strong> dancing not only made me energetic but also pleased </strong>. 
+    </p><hr>
+    I am a person of responsibility. That’s why <strong> I was elected class leader twice </strong>. I was good at communicating with classmates and dealt with some class chores. During the past three years, I have made my efforts to study hard. My favorite subjects are mathematics and computer science. At my teachers’ suggestions, I passed some professional certificates.<p></p>
+    </blockquote>
+  </div>
+
+  <canvas id="canvas" width="1000" height="650"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas");
+      var startX = 100;
+      var startY = 600;
+      var ctx = canvas.getContext('2d');
+      var data = [0,20,40,60,80,100];   //座標軸座標
+      var point = [[100,200],[150,230],[200,190],[250,400],[300,300],[350,270],[400,450],[450,400],[500,500]];  //點座標
+
+      //建立座標系
+      function creat(){
+        ctx.beginPath();
+        ctx.moveTo(startX,50);
+        ctx.lineTo(startX,startY);
+        ctx.moveTo(startX,startY);
+        ctx.lineTo(650,startY);
+        ctx.closePath();
+        ctx.stroke();
+
+      }
+      //填充橫縱座標
+      function insert(){
+        var x = 100;
+        var y = 600;
+        //繪製橫座標
+        for(var i in data){
+          ctx.fillText(data[i],x,y+20);
+          x += 100;
+        }
+        x = 100;
+        y = 600;
+        //繪製縱座標
+        for(var i in data){
+          ctx.fillText(data[i],x-20,y);
+          y -= 100;
+        }
+      }
+      //繪製折線
+      var num = 0;
+      var sh = setInterval(function(){
+        //只有第一個點重新開始繪製
+        if(num == 0)
+          ctx.beginPath();
+        //終止
+        if(num == 8){
+          clearInterval(sh);
+        }
+        var x = point[num][0];
+        var y = point[num][1];
+        //轉換座標
+        x += 100;
+        y = startY - y;
+        ctx.arc(x,y, 2, 0, 2*Math.PI);
+        //進行點的內部連線
+        if(num != 0)
+          ctx.lineTo(x,y);
+        num++;
+        ctx.moveTo(x,y);
+        ctx.strokeStyle = "#3FA7DC";
+        //連線邊框
+        ctx.stroke();
+        console.log(num);
+      }, 400);
+      creat();
+      insert();
+    </script>
+    <div class="#">
+      <h3 class="bfont">Elsewhere</h3>
+      <ol>
+        <li><a href="https://www.instagram.com/yi_ling_0308/">Instagram</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100002498803222">Facebook</a></li>
+      </ol>
+    </div>
+    <p align="center">
+        <a href="#">Back to top</a>
+    </p>
+
+  </body>
+</html>
