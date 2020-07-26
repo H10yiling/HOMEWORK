@@ -53,13 +53,6 @@ def every_round(poker_list):
     your_card = count(your_init_poker)
     pc_card = count(pc_init_poker)
     return pk(your_card, pc_card)
-    while True:
-        if_game_go = game_over() 
-        if if_game_go == True:
-            print("玩家的牌：{}".format(your_init_poker))
-            print("電腦的牌：{}".format(pc_init_poker))
-            exit(0)
-        return pk(your_card, pc_card)
 
 input("按ENTER鍵，遊戲開始")
 while True:
